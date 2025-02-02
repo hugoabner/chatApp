@@ -5,7 +5,7 @@
 
 @layer components{
   .image{
-    @apply w-[71px]  h-[71px] rounded-[10px]
+    @apply w-[71px]  h-[71px] rounded-[10px];
   }
 
   .btn {
@@ -14,7 +14,7 @@
   }
 
   .input{
-    @apply p-4 border-gray-200  border-2 W-full outline-none bg-white
+    @apply p-4 border-gray-200  border-2 w-full outline-none bg-white
     bg-opacity-5 rounded-lg text-black text-lg  placeholder-gray-200;
   }
 }

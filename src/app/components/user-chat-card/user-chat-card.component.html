@@ -1,1 +1,24 @@
-<p>user-chat-card works!</p>
+@if (config) {
+  <div
+    class="user-chat-container cursor-pointer flex w-full gap-x-[14px]
+    items-center p-3 rounded-lg h-full"
+    [ngClass]="{isActive: config.isActive}"
+  >
+  <img
+    [src]="config.profile"
+    alt="user profile"
+    class="image h-[50px] w-[50px] "
+  >
+  <div class="content-secction flex flex-1 flex-col gap-y-2 h-full ">
+    @if (config.fullName) {
+      <span class="font-bold text-sm text-customColor-dark01 ">{{config.fullName}}</span>
+    }
+    @if (config.text) {
+      <span class="text-sm text-customColor-dark01 ">{{config.text}}</span>
+    }
+  </div>
+  @if (config.time) {
+    <span class="time-secction text-sm text-customColor-timeColor ">{{config.time}}</span>
+  }
+  </div>
+}

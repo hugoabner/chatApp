@@ -1,2 +1,11 @@
+<h1>Chat bubble component </h1>
+
 <app-chat-bubble [config]="leftConfig"></app-chat-bubble>
 <app-chat-bubble [config]="rightConfig"></app-chat-bubble>
+
+<h2>Search input component</h2>
+<app-search-input (search)="handleSearch($event)"></app-search-input>
+
+<h2>User chat card component</h2>
+<app-user-chat-card [config]="userChat"></app-user-chat-card>
+<app-user-chat-card [config]="userChatActive"></app-user-chat-card>
