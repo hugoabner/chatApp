@@ -53,8 +53,11 @@
       after:bg-customColor-boxBorder">
         <span class="px-3 text-black" >Or</span>
       </div>
-      <button class="btn w-full flex gap-x-2 justify-center text-customColor-dark01
-      bg-transparent border-2 border-solid border-customColor-dark01 ">
+      <button
+        (click)="handleSignInWithGoogle()"
+        class="btn w-full flex gap-x-2 justify-center text-customColor-dark01
+        bg-transparent border-2 border-solid border-customColor-dark01"
+      >
         <fa-icon [size]="'lg'" [icon]="faGoogle"></fa-icon>
         Sign With Google
       </button>
