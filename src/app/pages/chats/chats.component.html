@@ -1,1 +1,16 @@
-<p>chats works!</p>
+<div class="chat-container flex">
+  <div class="user-chat-container bg-customColor-sideBackground h-screen
+  w-1/4 p-6 flex flex-col gap-y-10">
+    <div class="search-filter-container flex flex-col gap-y-6 ">
+      <app-search-input (search)="handleSearch($event)"></app-search-input>
+    </div>
+    <div class="users-container flex flex-1 flex-col gap-y-6">
+      @for (item of userChats; track $index) {
+        <app-user-chat-card [config]="item"></app-user-chat-card>
+      }
+    </div>
+    <button (click)="authService.logoutUser()" class="btn w-full">
+      Logout
+    </button>
+  </div>
+</div>

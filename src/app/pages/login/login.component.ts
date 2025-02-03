@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { GoogleAuthProvider } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
@@ -28,7 +27,7 @@ export class LoginComponent {
   handleSignInWithGoogle() {
     this.authService.signInWithGoogle().then(
       (result) => {
-        //const credential = GoogleAuthProvider.credentialFromResult(result);
+        console.log(result);
         const user = result.user;
         this.authService.addUserData(user, null);
         this.authService.setCurrentUser(user);
