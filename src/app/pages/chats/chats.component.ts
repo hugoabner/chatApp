@@ -3,6 +3,7 @@ import { SearchInputComponent } from "../../components/search-input/search-input
 import { UserChatConfig } from 'src/app/interfaces/ui-configs/user-chat-config.interface';
 import { UserChatCardComponent } from 'src/app/components/user-chat-card/user-chat-card.component';
 import { AuthService } from 'src/app/services/auth.service';
+import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-chats',
@@ -20,7 +21,8 @@ export class ChatsComponent implements OnInit {
   currentUser: any;
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    private readonly chatService: ChatService
   ) {}
 
   ngOnInit(): void {
@@ -28,7 +30,16 @@ export class ChatsComponent implements OnInit {
       this.currentUser = res;
     }).catch((error) => {
       console.log(error);
-    })
+    });
+    this.getUsers();
+  }
+
+  getUsers() {
+    this.chatService.userSubject.subscribe(
+      (res) => {
+
+      }
+    )
   }
 
   handleSearch ($event: string) {

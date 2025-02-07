@@ -24,13 +24,18 @@ export class ChatService {
       const data = snapShot.docChanges().map((docs) => {
         if (docs.type === 'added') {
           if (userId !== docs.doc.id) {
-            users.push(docs.doc.data());
+            users.push({...docs.doc.data()});
             this.userSubject.next(users);
           }
         } else if (docs.type === 'removed') {
-
+          const user = docs.doc.data() as any;
+          users = users.filter((u) => u.userId !== user.userId);
+          this.userSubject.next(users);
         } else if (docs.type === 'modified') {
-
+          const user = docs.doc.data() as any;
+          const index = users.findIndex((u) => u.userId !== user.userId);
+          users[index] = docs.doc.data();
+          this.userSubject.next(users);
         }
       })
     })
