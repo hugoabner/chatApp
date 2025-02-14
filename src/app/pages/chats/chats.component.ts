@@ -18,6 +18,7 @@ import { ChatService } from 'src/app/services/chat.service';
 export class ChatsComponent implements OnInit {
 
   userChats: UserChatConfig[] = [];
+
   currentUser: any;
 
   constructor(
@@ -37,7 +38,21 @@ export class ChatsComponent implements OnInit {
   getUsers() {
     this.chatService.userSubject.subscribe(
       (res) => {
-
+        this.userChats = res.map((item, index) => {
+          const user : UserChatConfig = {
+            fullName: item.fullName,
+            text: '',
+            time: '20.00',
+            profile: item.profile,
+            isActive: false,
+            onclick: () => {
+              const chatUserId = item.userId;
+              //this.senderUser = user;
+              //this.userChats.map(())
+            }
+          }
+          return user
+        })
       }
     )
   }
@@ -46,3 +61,5 @@ export class ChatsComponent implements OnInit {
     console.log('Parent: ', $event);
   }
 }
+
+const currentUser = "hola";
