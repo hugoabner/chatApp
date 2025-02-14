@@ -13,4 +13,38 @@
       Logout
     </button>
   </div>
+
+  @if (senderUser) {
+    <div class="chat-details-seccion h-[100vh] overflow-hidden bg-customColor-greyish flex flex-1 flex-col">
+      <div class="profile-header bg-customColor-greyish px-8 flex py-4 gap-x-3">
+        <img class="image" [src]="senderUser.profile" alt="sender profile">
+        <div class="content-section flex flex-col ">
+          @if (senderUser.fullName) {
+            <span class="text-customColor-dark01 font-bold text-2xl">{{senderUser.fullName}}</span>
+          }
+        </div>
+      </div>
+
+      <div class="messages-container flex-1 bg-customColor-greyish overflow-y-scroll">
+        <div class="message-list h-full flex flex-col gap-y-2 p-10 ">
+          @for (item of chats; track $index) {
+            <app-chat-bubble [config]="item"></app-chat-bubble>
+          }
+        </div>
+      </div>
+
+      <div class="input-text-section bg-customColor-bubbleBackground flex mx-6 px-4 py-5
+      gap-x-8 rounded-lg my-5  items-center ">
+        <input [formControl]="messageControl" type="text" placeholder="Say something..." class="bg-transparent flex-1 px-4 outline-none"/>
+        <div (click)="addMessage()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+
+  }
 </div>

@@ -15,7 +15,8 @@ module.exports = {
           boxBorderTop: 'rgba(129,140,248, 1)',
           bubbleBackground: '#EBECF6',
           rightBackground: '#696EE5',
-          timeColor: '#829C99'
+          timeColor: '#829C99',
+          greyish: '#F8F9FB'
         }
       }
     },

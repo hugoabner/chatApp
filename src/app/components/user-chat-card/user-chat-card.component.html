@@ -3,6 +3,7 @@
     class="user-chat-container cursor-pointer flex w-full gap-x-[14px]
     items-center p-3 rounded-lg h-full"
     [ngClass]="{isActive: config.isActive}"
+    (click)="config?.onclick()"
   >
   <img
     [src]="config.profile"
