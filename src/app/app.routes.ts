@@ -1,27 +1,27 @@
-import { Routes } from '@angular/router';
-import { TestComponent } from './pages/test/test.component';
-import { LoginComponent } from './pages/login/login.component';
-import { ChatsComponent } from './pages/chats/chats.component';
-import { authGuard } from './guards/auth.guard';
+import { Routes } from "@angular/router";
+import { TestComponent } from "./pages/test/test.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { ChatsComponent } from "./pages/chats/chats.component";
+import { authGuard } from "./guards/auth.guard";
 
 export const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: 'chat'
+    path: "",
+    pathMatch: "full",
+    redirectTo: "chat",
   },
   {
-    path: 'test',
+    path: "test",
     component: TestComponent,
-    canActivate: [authGuard]
+    canActivate: [authGuard],
   },
   {
-    path: 'login',
-    component: LoginComponent
+    path: "login",
+    component: LoginComponent,
   },
   {
-    path: 'chat',
+    path: "chat",
     component: ChatsComponent,
-    canActivate: [authGuard]
-  }
+    canActivate: [authGuard],
+  },
 ];
